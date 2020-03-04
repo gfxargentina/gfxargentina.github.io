@@ -1,0 +1,97 @@
+body{
+    
+}
+
+.bgcolor{
+    background-color: black;
+}
+
+.video-background{
+    position: relative;
+    width: 100%;
+    min-height: 66vh;
+    
+}
+
+.caption{
+    position: absolute;
+    top: 20%;
+    width: 100%;
+}
+
+.caption h1 {
+    font-size: 4rem;
+    letter-spacing: .2rem;
+    text-shadow: .1rem .1rem .8rem;
+    padding-bottom: 1rem;
+}
+
+.caption h3{
+    font-size: 2rem;
+    letter-spacing: .2rem;
+    text-shadow: .1rem .1rem .8rem;
+    padding-bottom: 1rem;
+}
+
+.btn-lg {
+  border-width: medium;
+ 
+}
+
+ul{
+    margin: 0;
+    padding: 0;
+}
+
+/*el borde solo afecta a la clase skills*/
+ul li.skills {
+border: 1px solid #0bceaf;
+padding: 4px 10px;
+border-radius: 4px;
+color: white;
+
+}
+
+/*acomoda los skills en linea*/
+li{
+margin: 0px 6px;
+margin-bottom: 0px;
+border-radius: 4px;
+margin-bottom: 10px;
+padding: 0px 0px;
+display: inline-block;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*MEDIA QUERIES*/
+
+@media (max-width: 768px) {
+    .caption h1 {
+        font-size: 2rem;
+        letter-spacing: .2rem;
+        text-shadow: .1rem .1rem .8rem;
+        padding-bottom: 1rem;
+    }
+    
+    .caption h3{
+        font-size: 1rem;
+        letter-spacing: .1rem;
+        text-shadow: .1rem .1rem .8rem;
+        padding-bottom: 1rem;
+    }
+    
+    
+
+}
