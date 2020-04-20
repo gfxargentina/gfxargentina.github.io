@@ -5,6 +5,7 @@
 
 /*color personalizado para los botones*/
 .btn-primary.custom-btn {
+	color: white;
 	background-color: #0caa92;
 	border-color: #0caa92;
 }
