@@ -14,6 +14,59 @@
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <!-- FONTAWESOME -->
   <script src="https://kit.fontawesome.com/f2da195031.js"></script>
+<!-- EMAIL JS -->
+  <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/emailjs-com@2.4.1/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init("user_1IWr7PjvlKq6BVX77Iw2L");
+      
+   })();
+</script>
+<script type="text/javascript">
+   window.onload = function () {
+     //esto agrega un listener al formulario con id contacto
+        document.getElementById('contacto').addEventListener('submit', function (event) {
+            event.preventDefault();
+            //con esto toma los campos del formulario contacto y lo manda al template de emailjs
+            var templateParams = {
+                from_name: document.getElementById("name").value,
+                from_email: document.getElementById("emailAdress").value,
+                project_request: document.getElementById("message").value,
+            };
+              //
+            emailjs.send('gmail', 'gfxargentina', templateParams)
+                .then(function (response) {
+                  //si el mensaje esta ok le manda un alert
+                    if (response.status == 200 && response.text == 'OK')
+                        alert('Your message has been sent Successfully..!!!');
+                    else
+                    //si hay un error le manda un alert
+                        alert('Sorry there was a problem. Please try again...!!!');
+                }, function (error) {
+                    alert('Sorry there was a problem. Please try again...!!!');
+                });
+                //limpia los campos del formulario
+            document.getElementById('contacto').reset();
+        });
+      }
+//   window.onload = function () {
+//   document.getElementById('contacto').addEventListener('submit', function (event) {
+//   event.preventDefault();
+//   emailjs.sendForm('gmail', 'gfxargentina', this).then(function (response) {
+//   if (response.status == 200 && response.text == 'OK')
+//   alert('Your message has been sent Successfully..!!!');
+//   else
+//   alert('Sorry there was a problem. Please try again...!');
+//   }, function (error) {
+//   alert('Sorry there was a problem. Please try again...!!!');
+//   });
+//   document.getElementById('contacto').reset();
+//   });
+// }
+  </script>
+
 
 </head>
 
@@ -265,23 +318,21 @@
         </div>     
         <div class="col-sm-6">
           <h2 class="text-light font-weight-bold text-secondary">Send me a Message</h2>
-          <form>
+          <form id="contacto" >
             <div class="form-group text-light">
-              <label for="exampleFormControlInput1">Name:</label>
-              <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="your name">
+              <label>Name:</label>
+              <input type="text" class="form-control" id="name" name="name" placeholder="your name">
             </div>
             <div class="form-group text-light">
-              <label for="exampleFormControlInput2">Email address</label>
-              <input type="email" class="form-control" id="exampleFormControlInput2" placeholder="name@example.com">
-            </div>
+              <label for="for_email">Email address</label>
+              <input type="email" class="form-control" id="emailAdress" name="emailAdress" placeholder="name@example.com">
+            </div>                                
             <div class="form-group text-light">
-              <label for="exampleFormControlInput3">Subject</label>
-              <input type="text" class="form-control" id="exampleFormControlInput3" placeholder="subject">
-            </div>                        
-            <div class="form-group text-light">
-              <label for="exampleFormControlTextarea">Message</label>
-              <textarea class="form-control" id="exampleFormControlTextarea" rows="3"></textarea>
+              <label for="project_request">Message</label>
+              <textarea class="form-control" id="message" name="message" rows="3"></textarea>
             </div>
+            <!-- <input type="submit" value="Send"> -->
+            <button type="submit" value="send" class="btn btn-cv btn-lg">Submit</button>
           </form>
       </div>
     </div>
@@ -337,6 +388,8 @@
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
     
+ <script src="sendEmail.js">  </script>
+ 
 
 </body>
 
